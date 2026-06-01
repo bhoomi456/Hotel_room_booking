@@ -12,5 +12,3 @@ class Hotel
     puts "Room added successfully"
   end
 end
-h = Hotel.new("taj")
-puts h.name
