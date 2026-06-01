@@ -6,6 +6,11 @@ class Hotel
     @rooms = []
     @guests = []
   end
+
+  def add_rooms(room)
+    @rooms << room
+    puts "Room added successfully"
+  end
 end
 h = Hotel.new("taj")
 puts h.name
