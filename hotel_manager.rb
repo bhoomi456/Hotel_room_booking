@@ -31,9 +31,13 @@ module HotelManager
   end
 
   def calculate_bill(guest)
-    price = guest.booked_rooms[:price_per_day]
-    no_of_days = guest.booked_rooms[:no_of_days].to_i
-    price * no_of_days
+    total_amount = 0
+    guest.booked_rooms.each do |booking|
+      price = booking[:price_per_day].to_f
+      no_of_days = booking[:no_of_days].to_i
+      total_amount += no_of_days * price
+    end
+    return total_amount
   end
 
   def find_booking(guest, room_number)
@@ -54,10 +58,11 @@ module HotelManager
   def display_booking_details(guest)
     if guest.booked_rooms != nil
       guest.booked_rooms.each do |b|
-        puts "#{b[:room_number]}"
-        puts "#{b[:room_type]}"
-        puts "#{b[:price_per_day]}"
-        puts "#{b[:no_of_days]}"
+        puts "Guest Name : #{guest.name}"
+        puts "Room number : #{b[:room_number]}"
+        puts "Room Type : #{b[:room_type]}"
+        puts "Price per day : #{b[:price_per_day]}"
+        puts "No of days : #{b[:no_of_days]}"
         puts "Total amount : #{calculate_bill(guest)}"
       end
     else
