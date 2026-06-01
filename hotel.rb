@@ -11,4 +11,9 @@ class Hotel
     @rooms << room
     puts "Room added successfully"
   end
+
+  def add_guests(guest)
+    @guests << guest
+    puts "#{guest.name} guest added successfully"
+  end
 end
