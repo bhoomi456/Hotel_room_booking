@@ -49,7 +49,7 @@ module HotelManager
       guest.booked_rooms.reject! {|booking| booking[:room_number] == room.room_number}  
       room.available = true
       puts "#{room.room_number} Cancelled successfully by #{guest.name}"
-      puts guest.booked_rooms.length
+      # puts guest.booked_rooms.length
     else
       puts "Room number : #{room.room_number} has no booking with #{guest.name}-#{guest.guest_id}"
     end
@@ -57,6 +57,7 @@ module HotelManager
 
   def display_booking_details(guest)
     if guest.booked_rooms.length >= 1
+      puts "----Booking Details----"
       guest.booked_rooms.each do |b|
         puts "Guest Name : #{guest.name}"
         puts "Room number : #{b[:room_number]}"
