@@ -7,9 +7,17 @@ class Hotel
     @guests = []
   end
 
+  def find_room(room)
+    @rooms.find {|r| r.room_number == room.room_number}
+  end
+
   def add_rooms(room)
-    @rooms << room
-    puts "Room added successfully"
+    if find_room(room) != nil
+      @rooms << room
+      puts "Room added successfully"
+    else
+      puts "#{room.room_number} Room already exist"
+    end
   end
 
   def add_guests(guest)
