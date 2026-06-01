@@ -1,4 +1,7 @@
-class Hotel 
+require_relative "hotel_manager"
+
+class Hotel
+  include HotelManager
 
   attr_accessor :name, :rooms, :guests
   def initialize(name)
