@@ -1,0 +1,2 @@
+class InvalidNumberOfDays < StandardError
+end

@@ -1,0 +1,2 @@
+class GuestNotFound < StandardError
+end
