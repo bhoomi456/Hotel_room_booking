@@ -12,12 +12,12 @@ module HotelManager
     puts "#{room.room_number} Booked successfully"
   end
 
-  def book_room(guest, room_type, no_of_days)
+  def book_room(guest_id, room_type, no_of_days)
     room =  @rooms.find do |b|
       b.room_type == room_type && b.available == true
     end
 
-    guest = @guests.find {|g| g.guest_id == guest.guest_id}
+    guest = @guests.find {|g| g.guest_id == guest_id}
 
     if guest == nil
       raise GuestNotFound, "Guest not found"
