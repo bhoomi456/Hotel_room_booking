@@ -17,19 +17,19 @@ class Hotel
 
   def add_rooms(room)
     if find_room(room) != nil
+      puts "#{room.room_number} Room already exist"
+    else
       @rooms << room
       puts "Room added successfully"
-    else
-      puts "#{room.room_number} Room already exist"
     end
   end
 
   def add_guests(guest)
     if find_guests(guest) != nil
+      puts "#{guest.guest_id} Already registered"
+    else
       @guests << guest
       puts "#{guest.name} guest added successfully"
-    else
-      puts "#{guest.guest_id} Already registered"
     end
   end
 end
