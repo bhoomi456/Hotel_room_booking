@@ -21,9 +21,10 @@ puts "------------------------------"
 h.add_guests(g2)
 puts "------------------------------"
 
-h.book_room(g, "regular", 1)
-# h.book_room(g, "regular", 1)  # it raises error Invalid days
-# h.book_room(g2, "regular", 2) # it raises error Room not available
+h.book_room(101, "regular", 1)
+# h.book_room(103, "regular", 1) # it raises error guest not found
+# h.book_room(101, "regular", 1)  # it raises error Invalid days
+# h.book_room(101, "regular", 2) # it raises error Room not available
 puts "------------------------------"
 
 h.display_booking_details(g)
