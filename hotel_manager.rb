@@ -44,9 +44,8 @@ module HotelManager
     guest.booked_rooms.find{ |h| h[:room_number] == room_number}
   end
 
-  def cancel_booking(guest, room_number)
-    if find_booking(guest, room_number) != nil
-      room = find_room(room_number)
+  def cancel_booking(guest, room)
+    if find_booking(guest, room.room_number) != nil
       guest.booked_rooms.reject! {|booking| booking[:room_number] == room_number}  
       room.available = true
       puts "#{room_number} Cancelled successfully"
