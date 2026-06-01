@@ -23,7 +23,7 @@ puts "------------------------------"
 
 h.book_room(101, "regular", 1)
 # h.book_room(103, "regular", 1) # it raises error guest not found
-# h.book_room(101, "regular", 1)  # it raises error Invalid days
+# h.book_room(101, "regular", 0)  # it raises error Invalid days
 # h.book_room(101, "regular", 2) # it raises error Room not available
 puts "------------------------------"
 
