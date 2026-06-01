@@ -7,7 +7,3 @@ class Guest
     @booked_rooms = []
   end
 end
-
-g = Guest.new("bhoomi", 101)
-puts g.name
-puts g.guest_id
