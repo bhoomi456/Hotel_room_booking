@@ -51,7 +51,18 @@ module HotelManager
     end
   end
 
-  
-
+  def display_booking_details(guest)
+    if guest.booked_rooms != nil
+      guest.booked_rooms.each do |b|
+        puts "#{b[:room_number]}"
+        puts "#{b[:room_type]}"
+        puts "#{b[:price_per_day]}"
+        puts "#{b[:no_of_days]}"
+        puts "Total amount : #{calculate_bill(guest)}"
+      end
+    else
+      puts "There is no Booking!"
+    end
+  end
 end
 
