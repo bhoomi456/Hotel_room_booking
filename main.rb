@@ -11,10 +11,26 @@ g2 = Guest.new("bhoomi", 102)
 h = Hotel.new("taj")
 
 h.add_rooms(r)
+puts "------------------------------"
 h.add_rooms(r2)
+puts "------------------------------"
+
 h.add_guests(g)
+puts "------------------------------"
+
 h.add_guests(g2)
-h.book_room(g, "regular", 2)
+puts "------------------------------"
+
+h.book_room(g, "regular", 1)
+# h.book_room(g, "regular", 1)  # it raises error Invalid days
+# h.book_room(g2, "regular", 2) # it raises error Room not available
+puts "------------------------------"
+
 h.display_booking_details(g)
+puts "------------------------------"
+
 h.cancel_booking(g, r)
+puts "------------------------------"
+
 h.display_booking_details(g)
+puts "------------------------------"
