@@ -9,9 +9,3 @@ class Room
     @available = true
   end
 end
-
-r = Room.new(101, "standard", 2000)
-puts r.room_number
-puts r.room_type
-puts r.price_per_day
-puts r.available
