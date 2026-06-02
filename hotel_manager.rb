@@ -78,5 +78,18 @@ module HotelManager
       puts "Total amount : #{calculate_bill(guest)}"
     end
   end
+
+  def display_all_booking_details
+    puts "----All Booking Details----"
+    @booked_rooms.each do |b|
+      puts "Guest Name : #{b.guest.name}"
+      puts "Room number : #{b.room.room_number}"
+      puts "Room Type : #{b.room.room_type}"
+      puts "Price per day : #{b.room.price_per_day}"
+      puts "No of days : #{b.no_of_days}"
+      puts "Status : #{b.status}"
+      puts "\n"
+    end
+  end
 end
 
