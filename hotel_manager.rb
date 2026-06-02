@@ -31,14 +31,17 @@ module HotelManager
     total_amount
   end
 
-  def cancel_booking(guest, room)
-    if find_booking(guest, room.room_number) != nil
-      guest.booked_rooms.reject! {|booking| booking[:room_number] == room.room_number}  
-      room.available = true
-      puts "#{room.room_number} Cancelled successfully by #{guest.name}"
-      # puts guest.booked_rooms.length
+  def cancel_booking(guest)
+    if @booked_rooms.find {|b| b.guest.guest_id == guest.guest_id && b.status == "active"} != nil
+      @booked_rooms.each do |b|
+        if b.guest.guest_id == guest.guest_id
+          b.status = "cancelled"
+          b.room.available = true
+        end
+      end
+      puts "Booking cancelled successfully"
     else
-      puts "Room number : #{room.room_number} has no booking with #{guest.name}-#{guest.guest_id}"
+      puts "No boooking found"
     end
   end
 
