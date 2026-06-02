@@ -64,5 +64,19 @@ module HotelManager
       end
     end
   end
+
+  def checkout(guest)
+    guest_booked_room = @booked_rooms.select {|b| b.guest.guest_id == guest.guest_id && b.status == "active"}
+    if guest_booked_room.empty?
+      puts "No booking found"
+    else
+      guest_booked_room.each do |b|
+        b.status = "closed"
+        b.room.available = true
+      end
+      puts "Checked out successfully"
+      puts "Total amount : #{calculate_bill(guest)}"
+    end
+  end
 end
 
