@@ -34,9 +34,10 @@ h.add_guests(g3)
 puts "-------------------------------"
 
 h.book_room(g,"regular", 3)
-# h.book_room(103, "regular", 1) # it raises error guest not found
-# h.book_room(101, "regular", 0)  # it raises error Invalid days
-# h.book_room(101, "regular", 2) # it raises error Room not available
+h.book_room(g,"regular",3)
+# h.book_room(g "regular", 1) # it raises error guest not found
+# h.book_room(g, "regular", 0)  # it raises error Invalid days
+# h.book_room(g, "regular", 2) # it raises error Room not available
 puts "------------------------------"
 
 h.book_room(g2, "premium", 4)
