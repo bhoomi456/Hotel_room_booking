@@ -1,11 +1,9 @@
 module HotelManager
   
-  def book_room(guest_id, room_type, no_of_days)
+  def book_room(guest, room_type, no_of_days)
     room =  @rooms.find do |b|
-      b.room_type == room_type && b.available == true
+      b.room_type == room_type && b.available
     end
-
-    guest = @guests.find {|g| g.guest_id == guest_id}
 
     if guest == nil
       raise GuestNotFound, "Guest not found"
@@ -14,7 +12,10 @@ module HotelManager
     elsif no_of_days <= 0
       raise InvalidNumberOfDays, "Invalid number of days Entered"
     else
-      add_booking(guest, room, no_of_days)
+      booking = Booking.new(guest, room, no_of_days)
+      @booked_rooms << booking
+      room.available = false
+      puts "Room booked successfully"
     end
   end
 
