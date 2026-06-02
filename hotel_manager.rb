@@ -21,12 +21,14 @@ module HotelManager
 
   def calculate_bill(guest)
     total_amount = 0
-    guest.booked_rooms.each do |booking|
-      price = booking[:price_per_day].to_f
-      no_of_days = booking[:no_of_days].to_i
-      total_amount += no_of_days * price
+    @booked_rooms.each do |b|
+      if b.guest.guest_id == guest.guest_id && b.status == "closed"
+        price_per_day = b.room.price_per_day
+        no_of_days = b.no_of_days
+        total_amount += price_per_day * no_of_days
+      end
     end
-    return total_amount
+    total_amount
   end
 
   def find_booking(guest, room_number)
