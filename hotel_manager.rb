@@ -46,18 +46,22 @@ module HotelManager
   end
 
   def display_booking_details(guest)
-    if guest.booked_rooms.length >= 1
-      puts "----Booking Details----"
-      guest.booked_rooms.each do |b|
-        puts "Guest Name : #{guest.name}"
-        puts "Room number : #{b[:room_number]}"
-        puts "Room Type : #{b[:room_type]}"
-        puts "Price per day : #{b[:price_per_day]}"
-        puts "No of days : #{b[:no_of_days]}"
-        puts "Total amount : #{calculate_bill(guest)}"
-      end
-    else
+    guest_booked_room = @booked_rooms.select {|b| b.guest.guest_id == guest.guest_id}
+
+    if guest_booked_room.empty?
       puts "There is no Booking!"
+    else
+      puts "\n"
+      puts "----Booking Details----"
+      guest_booked_room.each do |b|
+        puts "Guest Name : #{guest.name}"
+        puts "Room number : #{b.room.room_number}"
+        puts "Room Type : #{b.room.room_type}"
+        puts "Price per day : #{b.room.price_per_day}"
+        puts "No of days : #{b.no_of_days}"
+        puts "Status : #{b.status}"
+        puts "\n"
+      end
     end
   end
 end
