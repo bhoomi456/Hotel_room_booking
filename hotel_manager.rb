@@ -31,10 +31,6 @@ module HotelManager
     total_amount
   end
 
-  def find_booking(guest, room_number)
-    guest.booked_rooms.find{ |h| h[:room_number] == room_number}
-  end
-
   def cancel_booking(guest, room)
     if find_booking(guest, room.room_number) != nil
       guest.booked_rooms.reject! {|booking| booking[:room_number] == room.room_number}  
