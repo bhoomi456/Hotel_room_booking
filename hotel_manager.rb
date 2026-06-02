@@ -4,8 +4,8 @@ module HotelManager
     room =  @rooms.find do |b|
       b.room_type == room_type && b.available
     end
-
-    if guest == nil
+    found_guest = @guests.find {|g| g.guest_id == guest.guest_id}
+    if found_guest == nil
       raise GuestNotFound, "Guest not found"
     elsif room == nil
       raise RoomNotAvailable, "Room not available"
